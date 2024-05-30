@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.1 on darwin)" generated="20240528 09:20:32.951" rpa="false" schemaversion="4">
+<suite id="s1" name="Outro" source="/Users/renner/workspace/ApiTesting/tests/outro.robot">
+<test id="s1-t1" name="Dado que o navegador está configurado com a viewport desejada" line="15">
+<kw name="Configurar Navegador">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240528 09:20:33.210" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20240528 09:20:33.210" endtime="20240528 09:20:37.787"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20240528 09:20:37.788" endtime="20240528 09:20:38.123"/>
+</kw>
+<status status="PASS" starttime="20240528 09:20:33.210" endtime="20240528 09:20:38.123"/>
+</kw>
+<status status="PASS" starttime="20240528 09:20:33.209" endtime="20240528 09:20:38.123"/>
+</test>
+<test id="s1-t2" name="Quando o usuário navega para a página complicada do Ultimate QA" line="18">
+<kw name="Navegar Para Página Complicada">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20240528 09:20:38.125" level="INFO">Opening url 'https://ultimateqa.com/complicated-page'</msg>
+<status status="PASS" starttime="20240528 09:20:38.124" endtime="20240528 09:20:41.075"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${EXPECTED_TITLE}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20240528 09:20:41.083" level="INFO">Page title is 'Complicated Page - Ultimate QA'.</msg>
+<status status="PASS" starttime="20240528 09:20:41.075" endtime="20240528 09:20:41.083"/>
+</kw>
+<status status="PASS" starttime="20240528 09:20:38.124" endtime="20240528 09:20:41.084"/>
+</kw>
+<status status="PASS" starttime="20240528 09:20:38.124" endtime="20240528 09:20:41.084"/>
+</test>
+<test id="s1-t3" name="E o usuário preenche o formulário de contato com nome, email e mensagem" line="21">
+<kw name="Preencher Formulário De Contato">
+<arg>Teste</arg>
+<arg>Teste3</arg>
+<arg>Teste campo maior</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${FORM_SELECTOR}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240528 09:20:41.085" endtime="20240528 09:20:41.132"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${NAME_FIELD}</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240528 09:20:41.133" level="INFO">Typing text 'Teste' into text field 'css=#et_pb_contact_name_0'.</msg>
+<status status="PASS" starttime="20240528 09:20:41.132" endtime="20240528 09:20:41.397"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${EMAIL_FIELD}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240528 09:20:41.398" level="INFO">Typing text 'Teste3' into text field 'css=#et_pb_contact_email_0'.</msg>
+<status status="PASS" starttime="20240528 09:20:41.397" endtime="20240528 09:20:41.476"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${MESSAGE_FIELD}</arg>
+<arg>${message}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240528 09:20:41.476" level="INFO">Typing text 'Teste campo maior' into text field 'css=#et_pb_contact_message_0'.</msg>
+<status status="PASS" starttime="20240528 09:20:41.476" endtime="20240528 09:20:41.582"/>
+</kw>
+<status status="PASS" starttime="20240528 09:20:41.085" endtime="20240528 09:20:41.582"/>
+</kw>
+<status status="PASS" starttime="20240528 09:20:41.084" endtime="20240528 09:20:41.583"/>
+</test>
+<test id="s1-t4" name="E o usuário resolve o captcha e submete o formulário" line="24">
+<kw name="Resolver Captcha E Submeter Formulário">
+<arg>13</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CAPTCHA_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240528 09:20:41.584" endtime="20240528 09:20:41.608"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CAPTCHA_FIELD}</arg>
+<arg>${captcha_solution}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240528 09:20:41.608" level="INFO">Typing text '13' into text field 'css=#et_pb_contact_form_0 form &gt; div input'.</msg>
+<status status="PASS" starttime="20240528 09:20:41.608" endtime="20240528 09:20:41.685"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240528 09:20:41.686" level="INFO">Clicking button 'css=#et_pb_contact_form_0 button'.</msg>
+<status status="PASS" starttime="20240528 09:20:41.685" endtime="20240528 09:20:41.771"/>
+</kw>
+<status status="PASS" starttime="20240528 09:20:41.584" endtime="20240528 09:20:41.771"/>
+</kw>
+<status status="PASS" starttime="20240528 09:20:41.583" endtime="20240528 09:20:41.772"/>
+</test>
+<test id="s1-t5" name="Então o título da página deve ser &quot;Complicated Page - Ultimate QA&quot;" line="27">
+<kw name="Verificar Título Da Página">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${EXPECTED_TITLE}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20240528 09:20:41.779" level="INFO">Page title is 'Complicated Page - Ultimate QA'.</msg>
+<status status="PASS" starttime="20240528 09:20:41.773" endtime="20240528 09:20:41.779"/>
+</kw>
+<status status="PASS" starttime="20240528 09:20:41.772" endtime="20240528 09:20:41.780"/>
+</kw>
+<status status="PASS" starttime="20240528 09:20:41.772" endtime="20240528 09:20:41.780"/>
+</test>
+<status status="PASS" starttime="20240528 09:20:32.953" endtime="20240528 09:20:41.780"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="Outro">Outro</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
